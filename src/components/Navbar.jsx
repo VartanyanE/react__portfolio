@@ -1,48 +1,44 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
+  const location = useLocation();
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-        <div class="container">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
-          <button
-            class="navbar-toggler navbar-toggler-right"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            Menu
-            <i class="fa fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ml-auto">
-              <li class="nav-item">
-                <a class="nav-link  active" href="#home">
-                  Home
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#about">
-                  About
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#portfolio">
-                  Portfolio
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top clearfix">
+        <Link
+          to="/"
+          className={location.pathname === "/" ? "nav-link active" : "nav-link"}
+        >
+          Home
+        </Link>
+        <button
+          className="navbar-toggler ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+            <Link
+              to="/about"
+              className={
+                location.pathname === "/about" ? "nav-link active" : "nav-link"
+              }
+            >
+              About
+            </Link>
+            <a className="nav-item nav-link" href="./inventory">
+              Portfolio
+            </a>
+            <a className="nav-item nav-link" href="./shopping">
+              Contact
+            </a>
           </div>
         </div>
       </nav>
