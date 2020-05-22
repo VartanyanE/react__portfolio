@@ -33,12 +33,26 @@ function Navbar() {
             >
               About
             </Link>
-            <a className="nav-item nav-link" href="./inventory">
+            <Link
+              to="/portfolio"
+              className={
+                location.pathname === "/portfolio"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
               Portfolio
-            </a>
-            <a className="nav-item nav-link" href="./shopping">
+            </Link>
+            <Link
+              to="/contact"
+              className={
+                location.pathname === "/contact"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+            >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
